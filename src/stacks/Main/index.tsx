@@ -4,6 +4,7 @@ import {CharacterDetailsStack} from '../CharacterDetails';
 import {TabNavigationStack} from '../TabNavigation';
 import {MainStackRoutes} from './Main.routes';
 import { Image } from 'react-native';
+import colors from '../../utils/constants/colors';
 
 const Tab = createNativeStackNavigator();
 
@@ -12,7 +13,7 @@ export const MainStack = () => {
     <Tab.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#162C1B',
+          backgroundColor: colors.DarkGreen,
         },
         headerTitle: () => (
           <Image

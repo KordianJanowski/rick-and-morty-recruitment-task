@@ -12,6 +12,6 @@ export const CharacterService = {
 
   findOne: async (id: number) => {
     const res: AxiosResponse<Character> = await axios.get(process.env.EXPO_PUBLIC_API_URL + `character/${id}`)
-    return res
+    return res.data
   }
 }

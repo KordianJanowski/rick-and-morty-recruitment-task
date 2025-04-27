@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../../utils/constants/colors';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   mainText: {
-    color: '#162C1B',
+    color: colors.DarkGreen,
     fontFamily: 'Inter_500Medium',
     fontSize: 36,
     marginBottom: 16
@@ -16,7 +17,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 100,
     borderWidth: 1,
-    borderColor: '#162C1B',
+    borderColor: colors.DarkGreen,
     paddingLeft: 10,
     paddingRight: 15,
     marginBottom: 16,
@@ -25,10 +26,10 @@ export const styles = StyleSheet.create({
   searchCharactersBarTextInput: {
     flex: 1,
     fontSize: 16,
-    color: "#162C1B",
+    color: colors.DarkGreen,
   },
   searchCharacterBarClearBtnFocused: {
-    backgroundColor: "#DAE4DC",
+    backgroundColor: colors.GreyshGreen,
     borderRadius: 4
   },
   filterCharactersButton: {
@@ -36,7 +37,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 22,
-    backgroundColor: '#224229',
+    backgroundColor: colors.PrimaryGreen,
     height: 34,
     width: 113,
     marginBottom: 32,

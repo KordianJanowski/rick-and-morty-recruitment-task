@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {CharacterListScreen} from './screens/CharacterList';
 import {FavoriteCharactersScreen} from './screens/FavoriteCharacters';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Image } from 'react-native';
+import colors from '../../utils/constants/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +14,7 @@ export const TabNavigationStack = () => {
       screenOptions={{
         tabBarStyle: {
           height: 70,
-          backgroundColor: '#162C1B',
+          backgroundColor: colors.DarkGreen,
           borderTopWidth: 0,
         },
         tabBarLabelStyle: {
@@ -25,7 +25,7 @@ export const TabNavigationStack = () => {
         tabBarIconStyle: {
           marginTop: 5,
         },
-        tabBarActiveBackgroundColor: '#224229',
+        tabBarActiveBackgroundColor: colors.PrimaryGreen,
       }}
     >
       <Tab.Screen
@@ -35,7 +35,7 @@ export const TabNavigationStack = () => {
           headerShown: false,
           tabBarLabel: 'ALL CHARACTERS',
           tabBarIcon: () => (
-            <Icon name="person" color={'#fff'} size={22} />
+            <Icon name="person" color={'#FFFFFF'} size={22} />
           ),
         }}
       />
@@ -46,7 +46,7 @@ export const TabNavigationStack = () => {
           headerShown: false,
           tabBarLabel: 'LIKED CHARACTERS',
           tabBarIcon: () => (
-            <Icon name="star" color={'#fff'} size={22} />
+            <Icon name="star" color={'#FFFFFF'} size={22} />
           ),
         }}
       />

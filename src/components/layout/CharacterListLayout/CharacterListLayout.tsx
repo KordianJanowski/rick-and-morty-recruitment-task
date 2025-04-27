@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {View, Text, TextInput, TouchableOpacity, Touchable} from 'react-native';
 import {styles} from './CharacterListLayout.styled';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import colors from '../../../utils/constants/colors';
 
 interface Props {
   children?: React.ReactNode;
@@ -17,7 +18,7 @@ const CharacterScreenLayout: React.FC<Props> = (props) => {
     <View style={styles.container}>
       <Text style={styles.mainText}>Characters</Text>
       <View style={styles.searchCharactersBar}>
-        <Icon name="search" size={24} color="#162C1B" />
+        <Icon name="search" size={24} color={colors.DarkGreen} />
         <TextInput
           style={styles.searchCharactersBarTextInput}
           placeholder='Search the characters'
@@ -32,7 +33,7 @@ const CharacterScreenLayout: React.FC<Props> = (props) => {
               onPressOut={() => setIsClearBtnFocused(false)}
               style={isClearBtnFocused && styles.searchCharacterBarClearBtnFocused}
             >
-              <Icon name="close" size={20} color="#162C1B" />
+              <Icon name="close" size={20} color={colors.DarkGreen} />
             </TouchableOpacity>
         }
       </View>
