@@ -5,24 +5,19 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface Props {
   children?: React.ReactNode;
+  searchValue: string
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>
 };
 
 const CharacterScreenLayout: React.FC<Props> = (props) => {
-  const { children } = props
+  const { children, searchValue, setSearchValue } = props
   const [isClearBtnFocused, setIsClearBtnFocused] = useState<boolean>(false)
-  const [searchValue, setSearchValue] = useState<string>('')
-
-  const searchCharacters = () => {
-    console.log(searchValue)
-  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.mainText}>Characters</Text>
       <View style={styles.searchCharactersBar}>
-        <TouchableOpacity onPress={() => searchCharacters()} >
-          <Icon name="search" size={24} color="#162C1B" />
-        </TouchableOpacity>
+        <Icon name="search" size={24} color="#162C1B" />
         <TextInput
           style={styles.searchCharactersBarTextInput}
           placeholder='Search the characters'

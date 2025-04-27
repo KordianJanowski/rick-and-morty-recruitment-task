@@ -2,16 +2,16 @@ import axios, { AxiosResponse } from "axios";
 import { Response } from "../types/api";
 import { Character } from "../types/characters";
 
-const RICK_AND_MORTY_API_URL = "https://rickandmortyapi.com/api/"
-
 export const CharacterService = {
-  find: async () => {
-    const res: AxiosResponse<Response<Character[]>> = await axios.get(RICK_AND_MORTY_API_URL + `character`)
-    return res.data.results
+  find: async (pageNumber: number, searchValue: string) => {
+    const res: AxiosResponse<Response<Character[]>> = await axios.get(
+      process.env.EXPO_PUBLIC_API_URL + `character?page=${pageNumber}&name=${searchValue}`
+    )
+    return res.data
   },
 
   findOne: async (id: number) => {
-    const res: Character = await axios.get(RICK_AND_MORTY_API_URL + `character/${id}`)
+    const res: AxiosResponse<Character> = await axios.get(process.env.EXPO_PUBLIC_API_URL + `character/${id}`)
     return res
   }
 }
