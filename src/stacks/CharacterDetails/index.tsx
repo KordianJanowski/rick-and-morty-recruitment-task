@@ -10,12 +10,12 @@ export const CharacterDetailsStack = () => {
     <Stack.Navigator
       screenOptions={{
         headerTransparent: true,
-        headerShown: false
+        headerShown: false,
       }}
     >
       <Stack.Screen
         name={CharacterDetailsStackRoutes.CharacterDetailsScreen}
-        children={CharacterDetailsScreen}
+        component={CharacterDetailsScreen}
       />
     </Stack.Navigator>
   );

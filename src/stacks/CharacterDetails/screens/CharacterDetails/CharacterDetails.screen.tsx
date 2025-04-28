@@ -1,15 +1,28 @@
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import {Button, Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import React, { useEffect, useState } from 'react';
 import {styles} from './CharacterDetails.styled';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Character } from '../../../../utils/types/characters';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../../../utils/constants/colors';
+import { useLiked } from '../../../../context/LikedContext';
 
 const CharacterDetailsScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const { character } = route.params as { character: Character };
+  const { isCharacterLiked, addLikedCharacter, removeLikedCharacter } = useLiked();
+  const [characterLiked, setCharacterLiked] = useState<boolean>(isCharacterLiked(character.id))
+
+  const toggleLike = () => {
+    if (isCharacterLiked(character.id)) {
+      setCharacterLiked(false)
+      removeLikedCharacter(character.id);
+    } else {
+      setCharacterLiked(true)
+      addLikedCharacter(character.id);
+    }
+  };
 
   return (
     <ScrollView>
@@ -51,9 +64,19 @@ const CharacterDetailsScreen = () => {
               </View>
             </View>
           </View>
-          <TouchableOpacity style={styles.likeCharacterToggleButton}>
-            <Icon name="star-border" size={18} color={'#FFFFFF'} />
-            <Text style={styles.likeCharacterToggleButtonText}>Add to liked</Text>
+          <TouchableOpacity onPress={toggleLike} style={styles.likeCharacterToggleButton}>
+            {
+              characterLiked ?
+                <>
+                  <Icon name="star" size={18} color={colors.Accent} />
+                  <Text style={styles.likeCharacterToggleButtonText}>Remove from liked</Text>
+                </>
+              :
+                <>
+                  <Icon name="star-border" size={18} color={'#FFFFFF'} />
+                  <Text style={styles.likeCharacterToggleButtonText}>Add to liked</Text>
+                </>
+            }
           </TouchableOpacity>
         </View>
       </View>

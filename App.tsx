@@ -5,6 +5,7 @@ import { useFonts } from '@expo-google-fonts/dm-mono/useFonts';
 import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
 import { DMMono_400Regular, DMMono_500Medium } from '@expo-google-fonts/dm-mono';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { LikedProvider } from './src/context/LikedContext';
 
 const queryClient = new QueryClient()
 
@@ -20,11 +21,13 @@ function App(): React.JSX.Element {
     return <></>
   } else {
     return (
-      <QueryClientProvider client={queryClient}>
-        <NavigationContainer>
-          <MainStack />
-        </NavigationContainer>
-      </QueryClientProvider>
+      <LikedProvider>
+        <QueryClientProvider client={queryClient}>
+          <NavigationContainer>
+            <MainStack />
+          </NavigationContainer>
+        </QueryClientProvider>
+      </LikedProvider>
     );
 
   }

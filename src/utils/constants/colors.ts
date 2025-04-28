@@ -4,4 +4,5 @@ export default {
   PrimaryGreen: '#224229',
   LightGreen: '#F4F6F5',
   GreyshGreen: '#DAE4DC',
+  Accent: '#F89F34'
 };

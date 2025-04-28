@@ -6,6 +6,8 @@ import {CharacterDetailsStackParamList} from '../CharacterDetails/CharacterDetai
 export type MainStackParamList = {
   TabNavigationStack: NavigatorScreenParams<TabNavigationStackParamList>;
   CharacterDetailsStack: NavigatorScreenParams<CharacterDetailsStackParamList>;
+  CharacterListScreen: undefined;
+  CharacterDetailsScreen: undefined;
 };
 
 export type MainStackNavigationProp =
@@ -16,4 +18,7 @@ export const MainStackRoutes: {
 } = {
   TabNavigationStack: 'TabNavigationStack',
   CharacterDetailsStack: 'CharacterDetailsStack',
+  CharacterListScreen: 'CharacterListScreen',
+  CharacterDetailsScreen: 'CharacterDetailsScreen',
+
 };
