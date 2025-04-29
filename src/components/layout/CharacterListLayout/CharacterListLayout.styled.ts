@@ -1,0 +1,58 @@
+import {StyleSheet} from 'react-native';
+import colors from '../../../utils/constants/colors';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingBottom: 28
+  },
+  mainText: {
+    color: colors.DarkGreen,
+    fontFamily: 'Inter_500Medium',
+    fontSize: 36,
+    marginBottom: 16
+  },
+  searchCharactersBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: '#FFFFFF',
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: colors.DarkGreen,
+    paddingLeft: 10,
+    paddingRight: 15,
+    marginBottom: 16,
+    height: 40,
+  },
+  searchCharactersBarTextInput: {
+    flex: 1,
+    fontSize: 16,
+    color: colors.DarkGreen,
+  },
+  searchCharacterBarClearBtnFocused: {
+    backgroundColor: colors.GreyshGreen,
+    borderRadius: 4
+  },
+  filterCharactersButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 22,
+    backgroundColor: colors.PrimaryGreen,
+    height: 34,
+    width: 113,
+    marginBottom: 8
+  },
+  filterCharactersButtonVisible: {
+    backgroundColor: colors.DarkGreen,
+  },
+  filterCharactersButtonText: {
+    fontFamily: 'DMMono_400Regular',
+    color: '#FFFFFF',
+    fontSize: 14,
+    marginRight: 6
+  },
+  filterCharacterBoxHidden: {
+    display: 'none'
+  }
+});

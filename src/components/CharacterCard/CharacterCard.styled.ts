@@ -1,0 +1,78 @@
+import {StyleSheet} from 'react-native';
+import colors from '../../utils/constants/colors';
+
+export const styles = StyleSheet.create({
+  characterCard: {
+    backgroundColor: colors.LightGreen,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: 200,
+    borderRadius: 24,
+    marginBottom: 25,
+    borderWidth: 1,
+    borderBottomWidth: 4,
+    borderRightWidth: 4,
+    borderColor: colors.PrimaryGreen,
+    padding: 16,
+  },
+  characterCardPressed: {
+    backgroundColor: "#FFFFFF",
+  },
+  characterCardInfoBox: {
+    width: "45%",
+    height: "100%",
+  },
+  characterCardImageBox: {
+    width: "55%",
+    position: 'relative',
+    alignItems: "flex-end",
+  },
+  characterCardInfoBoxLabel: {
+    fontSize: 12,
+    fontFamily: "DMMono_500Medium",
+    color: colors.MediumGreen,
+    textTransform: "uppercase",
+    letterSpacing: 1
+  },
+  characterCardInfoBoxText: {
+    fontSize: 16,
+    fontFamily: "Inter_400Regular",
+    color: colors.DarkGreen,
+    marginBottom: 8
+  },
+  characterCardImage: {
+    height: "100%",
+    aspectRatio: 1,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: colors.PrimaryGreen,
+  },
+  likeCharacterToggleButton: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 100,
+    paddingTop: 8,
+    paddingRight: 16,
+    paddingBottom: 8,
+    paddingLeft: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 8,
+    position: "absolute",
+    borderWidth: 1,
+    borderColor: colors.PrimaryGreen,
+    bottom: 8,
+    right: 8
+  },
+  likeCharacterToggleButtonText: {
+    color: colors.PrimaryGreen,
+    fontFamily: "DMMono_400Regular",
+    fontSize: 14,
+    textTransform: "uppercase",
+    marginLeft: 4,
+  },
+  likedCharacterBtnBgColor: {
+    backgroundColor: colors.GreyshGreen,
+  }
+});

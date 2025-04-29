@@ -1,3 +1,15 @@
+# Environment Setup
+
+## .env file
+
+In order for the application to work correctly, you need to set up an environment variable.
+Create a `.env` file at the root of the project and add the following:
+
+```bash
+EXPO_PUBLIC_API_URL=https://rickandmortyapi.com/api/
+```
+
+
 # Rick & Morty App - Technical Task for React Native Developers
 
 ## Prerequisite
