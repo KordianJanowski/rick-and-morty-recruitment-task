@@ -1,6 +1,6 @@
 import React from 'react'
 import { styles } from './CharacterCard.styled'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { MainStackNavigationProp } from '../../stacks/Main/Main.routes';
 import { Character } from '../../utils/types/characters';
@@ -33,7 +33,13 @@ const CharactedCard: React.FC<Props> = (props) => {
   }
 
   return (
-    <TouchableOpacity onPress={() => navigateToCharacterDetails(character)} style={styles.characterCard}>
+    <Pressable
+      onPress={() => navigateToCharacterDetails(character)}
+      style={({ pressed }) => [
+        styles.characterCard,
+        pressed && styles.characterCardPressed,
+      ]}
+    >
       <View style={styles.characterCardInfoBox}>
         <Text style={styles.characterCardInfoBoxLabel}>Name</Text>
         <Text style={styles.characterCardInfoBoxText}>{character.name}</Text>
@@ -44,9 +50,12 @@ const CharactedCard: React.FC<Props> = (props) => {
       </View>
       <View style={styles.characterCardImageBox}>
         <Image style={styles.characterCardImage} source={{ uri: character.image }} />
-        <TouchableOpacity
+        <Pressable
           onPress={() => toggleLike(character.id)}
-          style={[styles.likeCharacterToggleButton, isCharacterLiked(character.id) && styles.likedCharacterBtnBgColor]}
+          style={({ pressed }) => [
+            styles.likeCharacterToggleButton,
+            (pressed || isCharacterLiked(character.id)) && styles.likedCharacterBtnBgColor,
+          ]}
         >
           <Icon
             name={isCharacterLiked(character.id) ? "star" : "star-border"}
@@ -54,9 +63,9 @@ const CharactedCard: React.FC<Props> = (props) => {
             size={18}
           />
           <Text style={styles.likeCharacterToggleButtonText}>Like</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 

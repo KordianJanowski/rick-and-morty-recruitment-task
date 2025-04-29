@@ -8,14 +8,15 @@ interface Props {
   filtersOptions: string[]
   filter: string
   setFilter: React.Dispatch<React.SetStateAction<string>>
+  label: string
 }
 
 const FilterCharactersBoxGroup: React.FC<Props> = (props) => {
-  const { filtersOptions, filter, setFilter } = props
+  const { filtersOptions, filter, setFilter, label } = props
 
   return (
     <View style={styles.filterCharactersBoxGroup}>
-      <Text style={styles.filterCharactersBoxLabel}>Status</Text>
+      <Text style={styles.filterCharactersBoxLabel}>{label}</Text>
       {
         filtersOptions.map(option => {
           return (
@@ -23,7 +24,7 @@ const FilterCharactersBoxGroup: React.FC<Props> = (props) => {
               <Checkbox
                 status={filter === option ? 'checked' : 'unchecked'}
                 onPress={() => setFilter(option)}
-                color={colors.PrimaryGreen}
+                color={colors.DarkGreen}
               />
               <Text style={styles.filterCharactersBoxText}>{option}</Text>
             </View>

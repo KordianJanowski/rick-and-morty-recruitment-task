@@ -14,16 +14,19 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 4,
     borderRightWidth: 4,
     borderColor: colors.PrimaryGreen,
+    padding: 16,
+  },
+  characterCardPressed: {
+    backgroundColor: "#FFFFFF",
   },
   characterCardInfoBox: {
     width: "45%",
     height: "100%",
-    padding: 16,
   },
   characterCardImageBox: {
     width: "55%",
-    padding: 10,
-    position: 'relative'
+    position: 'relative',
+    alignItems: "flex-end",
   },
   characterCardInfoBoxLabel: {
     fontSize: 12,
@@ -59,8 +62,8 @@ export const styles = StyleSheet.create({
     position: "absolute",
     borderWidth: 1,
     borderColor: colors.PrimaryGreen,
-    bottom: 16,
-    right: 16
+    bottom: 8,
+    right: 8
   },
   likeCharacterToggleButtonText: {
     color: colors.PrimaryGreen,

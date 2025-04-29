@@ -83,6 +83,9 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 8
   },
+  likeCharacterToggleButtonPressed: {
+    backgroundColor: colors.DarkGreen,
+  },
   likeCharacterToggleButtonText: {
     color: "#FFFFFF",
     fontFamily: "DMMono_400Regular",

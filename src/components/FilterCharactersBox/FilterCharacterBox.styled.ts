@@ -26,8 +26,14 @@ export const styles = StyleSheet.create({
     paddingBottom: 8,
     paddingLeft: 16
   },
+  filterCharacterBoxButtonPressed: {
+    backgroundColor: colors.GreyshGreen
+  },
   filterCharacterBoxButtonApply: {
     backgroundColor: colors.PrimaryGreen
+  },
+  filterCharacterBoxButtonApplyPressed: {
+    backgroundColor: colors.DarkGreen
   },
   filterCharacterBoxButtonText: {
     fontFamily: 'DMMono_400Regular',

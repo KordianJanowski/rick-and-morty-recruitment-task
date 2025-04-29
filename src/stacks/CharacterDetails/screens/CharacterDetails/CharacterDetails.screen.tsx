@@ -1,5 +1,5 @@
-import {Button, Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import React, { useEffect, useState } from 'react';
+import {Image, Pressable, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import React, { useState } from 'react';
 import {styles} from './CharacterDetails.styled';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Character } from '../../../../utils/types/characters';
@@ -70,7 +70,13 @@ const CharacterDetailsScreen = () => {
               />
             </View>
           </View>
-          <TouchableOpacity onPress={toggleLike} style={styles.likeCharacterToggleButton}>
+          <Pressable
+            onPress={toggleLike}
+            style={({ pressed }) => [
+              styles.likeCharacterToggleButton,
+              pressed && styles.likeCharacterToggleButtonPressed,
+            ]}
+          >
             <Icon
               name={characterLiked ? "star" : "star-border"}
               color={characterLiked ? colors.Accent : "#FFFFFF"}
@@ -79,7 +85,7 @@ const CharacterDetailsScreen = () => {
             <Text style={styles.likeCharacterToggleButtonText}>
               { characterLiked ? "Remove from liked" : "Add to liked"}
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </ScrollView>
