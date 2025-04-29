@@ -6,6 +6,8 @@ import { Character } from '../../../../utils/types/characters';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../../../utils/constants/colors';
 import { useLiked } from '../../../../context/LikedContext';
+import { CharacterInfoTile } from '../../../../components';
+import { CharacterInfoTileMarginEnum } from '../../../../utils/types/styles';
 
 const CharacterDetailsScreen = () => {
   const route = useRoute();
@@ -44,39 +46,39 @@ const CharacterDetailsScreen = () => {
           </View>
           <View style={styles.characterInfoTiles}>
             <View style={styles.characterInfoTilesRow}>
-              <View style={[styles.characterInfoTile, styles.tileMarginRight]}>
-                <Text style={styles.characterInfoTileLabel}>Status</Text>
-                <Text style={styles.characterInfoTileText}>{character.status}</Text>
-              </View>
-              <View style={[styles.characterInfoTile, styles.tileMarginLeft]}>
-                <Text style={styles.characterInfoTileLabel}>Origin</Text>
-                <Text style={styles.characterInfoTileText}>{character.origin.name}</Text>
-              </View>
+              <CharacterInfoTile
+                margin={CharacterInfoTileMarginEnum.right}
+                label='Status'
+                text={character.status}
+              />
+              <CharacterInfoTile
+                margin={CharacterInfoTileMarginEnum.left}
+                label='Origin'
+                text={character.origin.name}
+              />
             </View>
             <View style={styles.characterInfoTilesRow}>
-              <View style={[styles.characterInfoTile, styles.tileMarginRight]}>
-                <Text style={styles.characterInfoTileLabel}>Species</Text>
-                <Text style={styles.characterInfoTileText}>{character.species}</Text>
-              </View>
-              <View style={[styles.characterInfoTile, styles.tileMarginLeft]}>
-                <Text style={styles.characterInfoTileLabel}>Gender</Text>
-                <Text style={styles.characterInfoTileText}>{character.gender}</Text>
-              </View>
+              <CharacterInfoTile
+                margin={CharacterInfoTileMarginEnum.right}
+                label='Species'
+                text={character.species}
+              />
+              <CharacterInfoTile
+                margin={CharacterInfoTileMarginEnum.left}
+                label='Gender'
+                text={character.gender}
+              />
             </View>
           </View>
           <TouchableOpacity onPress={toggleLike} style={styles.likeCharacterToggleButton}>
-            {
-              characterLiked ?
-                <>
-                  <Icon name="star" size={18} color={colors.Accent} />
-                  <Text style={styles.likeCharacterToggleButtonText}>Remove from liked</Text>
-                </>
-              :
-                <>
-                  <Icon name="star-border" size={18} color={'#FFFFFF'} />
-                  <Text style={styles.likeCharacterToggleButtonText}>Add to liked</Text>
-                </>
-            }
+            <Icon
+              name={characterLiked ? "star" : "star-border"}
+              color={characterLiked ? colors.Accent : "#FFFFFF"}
+              size={18}
+            />
+            <Text style={styles.likeCharacterToggleButtonText}>
+              { characterLiked ? "Remove from liked" : "Add to liked"}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

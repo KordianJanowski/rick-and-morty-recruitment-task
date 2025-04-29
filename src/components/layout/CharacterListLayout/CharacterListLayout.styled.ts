@@ -4,6 +4,7 @@ import colors from '../../../utils/constants/colors';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingBottom: 28
   },
   mainText: {
     color: colors.DarkGreen,
@@ -40,12 +41,18 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.PrimaryGreen,
     height: 34,
     width: 113,
-    marginBottom: 32,
+    marginBottom: 8
+  },
+  filterCharactersButtonVisible: {
+    backgroundColor: colors.DarkGreen,
   },
   filterCharactersButtonText: {
     fontFamily: 'DMMono_400Regular',
     color: '#FFFFFF',
     fontSize: 14,
     marginRight: 6
+  },
+  filterCharacterBoxHidden: {
+    display: 'none'
   }
 });

@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
-import {View, Text, TextInput, TouchableOpacity, Touchable} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from './CharacterListLayout.styled';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../../utils/constants/colors';
+import FilterCharacterBox from '../../FilterCharactersBox';
+import { Filters } from '../../../utils/types/characters';
 
 interface Props {
-  children?: React.ReactNode;
   searchValue: string
   setSearchValue: React.Dispatch<React.SetStateAction<string>>
+  setAppliedFilters: React.Dispatch<React.SetStateAction<Filters>>
 };
 
 const CharacterScreenLayout: React.FC<Props> = (props) => {
-  const { children, searchValue, setSearchValue } = props
   const [isClearBtnFocused, setIsClearBtnFocused] = useState<boolean>(false)
+  const [isFiltersVisible, setIsFiltersVisible] = useState<boolean>(false)
+  const {
+    searchValue,
+    setSearchValue,
+    setAppliedFilters
+  } = props
 
   return (
     <View style={styles.container}>
@@ -37,12 +44,17 @@ const CharacterScreenLayout: React.FC<Props> = (props) => {
             </TouchableOpacity>
         }
       </View>
-      <TouchableOpacity style={styles.filterCharactersButton}>
+      <TouchableOpacity
+        onPress={() => setIsFiltersVisible(value => !value)}
+        style={[styles.filterCharactersButton, isFiltersVisible && styles.filterCharactersButtonVisible]}
+      >
         <Text style={styles.filterCharactersButtonText}>FILTER</Text>
-        <Icon name="keyboard-arrow-down" size={16} color="#FFFFFF" />
+        <Icon name={`keyboard-arrow-${isFiltersVisible ? 'up' : 'down'}`} size={16} color="#FFFFFF" />
       </TouchableOpacity>
-      <View>
-        {children}
+      <View style={!isFiltersVisible && styles.filterCharacterBoxHidden}>
+        <FilterCharacterBox
+          setAppliedFilters={setAppliedFilters}
+        />
       </View>
     </View>
   );

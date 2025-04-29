@@ -4,9 +4,11 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import { CharacterService } from '../../../../utils/api/rick-and-morty.services';
 import { FlatList } from 'react-native';
 import { styles } from './CharacterList.styled';
+import { Filters } from '../../../../utils/types/characters';
 
 const CharacterListScreen = () => {
   const [searchValue, setSearchValue] = useState<string>('')
+  const [appliedFilters, setAppliedFilters] = useState<Filters>({ status: '', species: '' })
 
   const {
     data,
@@ -14,8 +16,8 @@ const CharacterListScreen = () => {
     hasNextPage,
     isFetchingNextPage
   } = useInfiniteQuery({
-    queryKey: ['characters', searchValue],
-    queryFn: ({ pageParam = 1 }) => CharacterService.find(pageParam, searchValue),
+    queryKey: ['characters', searchValue, appliedFilters],
+    queryFn: ({ pageParam = 1 }) => CharacterService.find(pageParam, searchValue, appliedFilters.status, appliedFilters.species),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
       if (lastPage.info.next) {
@@ -47,6 +49,7 @@ const CharacterListScreen = () => {
         <CharacterScreenLayout
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          setAppliedFilters={setAppliedFilters}
         />
       }
     />

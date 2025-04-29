@@ -17,7 +17,6 @@ const CharactedCard: React.FC<Props> = (props) => {
   const navigation = useNavigation<MainStackNavigationProp>();
   const { isCharacterLiked, addLikedCharacter, removeLikedCharacter } = useLiked();
 
-
   const toggleLike = (characterId: number) => {
     if (isCharacterLiked(characterId)) {
       removeLikedCharacter(characterId);

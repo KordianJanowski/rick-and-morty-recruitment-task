@@ -5,14 +5,16 @@ import { styles } from './FavoriteCharacters.styled';
 import { CharacterService } from '../../../../utils/api/rick-and-morty.services';
 import { useQuery } from '@tanstack/react-query';
 import { useLiked } from '../../../../context/LikedContext';
+import { Filters } from '../../../../utils/types/characters';
 
 const FavoriteCharactersScreen = () => {
   const [searchValue, setSearchValue] = useState<string>('')
+    const [appliedFilters, setAppliedFilters] = useState<Filters>({ status: '', species: '' })
   const { likedCharacters } = useLiked()
 
   const { data } = useQuery({
-    queryKey: ['characters', searchValue, likedCharacters],
-    queryFn: () => CharacterService.findByIds(likedCharacters, searchValue),
+    queryKey: ['characters', searchValue, likedCharacters, appliedFilters],
+    queryFn: () => CharacterService.findByIds(likedCharacters, searchValue, appliedFilters.status, appliedFilters.species),
   })
 
   return (
@@ -27,6 +29,7 @@ const FavoriteCharactersScreen = () => {
         <CharacterScreenLayout
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          setAppliedFilters={setAppliedFilters}
         />
       }
     />

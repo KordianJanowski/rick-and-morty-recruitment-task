@@ -25,7 +25,8 @@ export const styles = StyleSheet.create({
   },
   goBackButtonText: {
     marginLeft: 5,
-    fontSize: 12, color: colors.MediumGreen,
+    fontSize: 12,
+    color: colors.MediumGreen,
     fontFamily: 'Inter_400Regular'
   },
   characterDetails: {
@@ -69,32 +70,6 @@ export const styles = StyleSheet.create({
   characterInfoTilesRow: {
     flexDirection: "row",
     justifyContent: "space-between"
-  },
-  characterInfoTile: {
-    backgroundColor: colors.LightGreen,
-    borderRadius: 10,
-    padding: 8,
-    marginBottom: 12,
-    flex: 1
-  },
-  characterInfoTileLabel: {
-    color: colors.MediumGreen,
-    fontFamily: "DMMono_500Medium",
-    fontSize: 12,
-    letterSpacing: 1,
-    textTransform: "uppercase"
-  },
-  characterInfoTileText: {
-    color: colors.DarkGreen,
-    fontFamily: "Inter_400Regular",
-    fontSize: 16,
-    letterSpacing: -0.5
-  },
-  tileMarginRight: {
-    marginRight: 6
-  },
-  tileMarginLeft: {
-    marginLeft: 6
   },
   likeCharacterToggleButton: {
     backgroundColor: colors.PrimaryGreen,
